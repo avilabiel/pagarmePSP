@@ -1,13 +1,14 @@
 const express = require('express')
 const routes = express.Router()
 const handler = require('express-async-handler')
+
+// Para evitar parameter injection
 const { celebrate, Joi, errors } = require('celebrate')
 
 const version = '/v1'
 
 const controllers = require('./controllers/')
 const Routes404 = require('./classes/Routes404')
-const ErroSimulacao = require('./controllers/ErroSimulacao')
 
 routes.post(version + '/client', celebrate({
     body: Joi.object().keys({
@@ -15,19 +16,29 @@ routes.post(version + '/client', celebrate({
         email: Joi.string().email().required().error(new Error('Por favor, digite um e-mail válido')),
         senha: Joi.string().min(8).required().error(new Error('Por favor insira uma senha válida com no mínimo 8 caracteres'))
     })
-}), handler(controllers.ClienteController.store))
+}), handler(controllers.Cliente.gravarNovoCliente))
 
-routes.post(version + '/transaction', celebrate({
-    body: Joi.object().keys({
-        valorTransacao: Joi.number().required().error(new Error('Por favor, digite um valor transação válido!')),
-        CVV: Joi.string().required().error(new Error('Por favor, digite um CVV válido!')),
+routes.get(version + '/client', celebrate({
+    query: Joi.object().keys({
+        email: Joi.string().email().required().error(new Error('Por favor, digite um e-mail válido')),
     })
-}), handler(async (req, res, next) => {
-    res.send({teste: true})
-}))
+}), handler(controllers.Cliente.buscarDados))
+
+routes.post(version + '/client/transactions', celebrate({
+    body: Joi.object().keys({
+        valorTransacao: Joi.number().required().error(new Error('Por favor, insira um valor transação válido!')),
+        descricaoTransacao: Joi.string().min(3).required().error(new Error('Por favor, insira uma descrição válida')),
+        metodoPagamento: Joi.string().valid('debit_card', 'credit_card').required().error(new Error('Por favor, insira um método válido')),
+        nroCartao: Joi.string().length(16).required().error(new Error('Insira um número de cartão válido')),
+        nomePortadorCartao: Joi.string().required().error(new Error('Insira o nome do portador do cartão válido')),
+        dataValidadeCartao: Joi.string().required().error(new Error('Insira uma data de validade válida')),
+        CVV: Joi.string().required().error(new Error('Por favor, digite um CVV válido!')),
+        token: Joi.string().required().error(new Error('Insira o nome do portador do cartão válido')),
+    })
+}), handler(controllers.Transacao.gravarNovaTransacao))
 
 // Simular um erro ao Rollbar
-routes.get(version + '/erro/simulacao/:tipo', handler(ErroSimulacao.simulacao))
+routes.get(version + '/erro/simulacao/:tipo', handler(controllers.ErroSimulacao.simulacao))
 
 // Evitar 404 padrao do Express para ocultar o uso do Express ao cliente
 routes.get('*', Routes404.invalidRoute404)
