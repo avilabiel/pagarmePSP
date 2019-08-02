@@ -1,5 +1,4 @@
 const {Clients} = require('../models')
-const md5 = require('md5')
 
 class Cliente {
 
@@ -19,8 +18,7 @@ class Cliente {
         const { email: nm_email } = req.query
 
         const client = await Clients.findOne({ where: { nm_email }, raw: true })
-        const token = md5(client.nm_email, client.id)
-        return res.status(200).send({ message: {...client, token } })
+        return res.status(200).send({ message: client })
     }
 
 }
