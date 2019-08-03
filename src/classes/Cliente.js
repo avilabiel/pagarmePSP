@@ -15,9 +15,21 @@ class Cliente {
         let data = await Clients.sequelize.query(sql, { bind: [this.token], type: Clients.sequelize.QueryTypes.SELECT })
 
         if (data.length === 0)
-            throw new Error('Token inválido')
+            throw new Error(`Token inválido ${this.token}`)
 
-        
+        let {id, nm_cliente, nm_email, nm_senha} = data[0]
+        this.id = id
+        this.nome = nm_cliente
+        this.email = nm_email
+        this.senha = nm_senha
+    }
+
+    async getIdCliente() {
+        return this.id
+    }
+
+    teste() {
+        console.log('tese')
     }
 }
 

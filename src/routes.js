@@ -31,11 +31,16 @@ routes.post(version + '/client/transactions', celebrate({
         metodoPagamento: Joi.string().valid('debit_card', 'credit_card').required().error(new Error('Por favor, insira um método válido')),
         nroCartao: Joi.string().length(16).required().error(new Error('Insira um número de cartão válido')),
         nomePortadorCartao: Joi.string().required().error(new Error('Insira o nome do portador do cartão válido')),
-        dataValidadeCartao: Joi.string().required().error(new Error('Insira uma data de validade válida')),
-        CVV: Joi.string().required().error(new Error('Por favor, digite um CVV válido!')),
+        dataValidadeCartao: Joi.string().length(5).required().error(new Error('Insira uma data de validade válida')),
+        cvv: Joi.string().required().error(new Error('Por favor, digite um CVV válido!')),
         token: Joi.string().required().error(new Error('Insira o nome do portador do cartão válido')),
     })
-}), handler(controllers.Transacao.gravarNovaTransacao))
+}), handler(async (req, res, next) => {
+    const transacao = new controllers.Transacao(req, res, next)
+    await transacao.gravarNovaTransacao()
+}))
+
+routes.get(version + '/client/payables/:token', handler(controllers.PagamentosCliente.getPagamentos))
 
 // Simular um erro ao Rollbar
 routes.get(version + '/erro/simulacao/:tipo', handler(controllers.ErroSimulacao.simulacao))
