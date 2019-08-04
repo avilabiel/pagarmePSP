@@ -2,13 +2,17 @@
 Desafio técnico proposto da PagarMe e Stone Mais visando o desenvolvimento de um sistema PSP simplificado.
 
 ## Instruções:
-### 1- Clone o repositório;
+#### 1- Clone o repositório;
 
-### 2- Instale os requisitos necessários com npm (npm -i) ou yarn (yarn install);
+Clone o repositório com ```git clone https://github.com/avilabiel/pagarmePSP.git```
 
-### 3- Banco de dados
+#### 2- Instale os requisitos necessários
 
-Estou usando uma versão free que demora um pouco nas requisições, podendo até dar um timeout. Caso isto ocorra, tente novamente que funcionará. Arrumarei o banco de dados nas próximas versões. Caso queira usar um banco MySQL local, fique à vontade, porém altere os arquivos .env.development com as configurações corretas. Após isso, rode "yarn sequelize db:migration".
+Instale os requisitos necessários com npm ```npm -i``` ou yarn ```yarn install```.
+
+#### 3- Banco de dados
+
+Estou usando uma versão free que demora um pouco nas requisições, podendo até dar um timeout. Caso isto ocorra, tente novamente que funcionará. Arrumarei o banco de dados nas próximas versões. Caso queira usar um banco MySQL local, fique à vontade, porém altere os arquivos .env.development com as configurações corretas. Após isso, rode ```yarn sequelize db:migration```.
 
 ### 4- Utilize as rotas na seguinte ordem:
 
