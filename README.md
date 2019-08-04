@@ -23,7 +23,7 @@ Estou usando uma versão free que demora um pouco nas requisições, podendo at�
     e. Listar pagamentos
 
 
-###### Rota: Cadastro
+##### Rota: Cadastro
 
 Para cadastrar um novo cliente faça um ```POST``` para ```http://localhost:5000/v1/client``` com o body:
     ```
