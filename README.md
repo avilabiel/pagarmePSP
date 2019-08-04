@@ -6,9 +6,9 @@ Desafio técnico proposto da PagarMe e Stone Mais visando o desenvolvimento de u
 
 Clone o repositório com ```git clone https://github.com/avilabiel/pagarmePSP.git```
 
-#### 2- Instale os requisitos necessários
+#### 2- Iniciar o serviço
 
-Instale os requisitos necessários com npm ```npm -i``` ou yarn ```yarn install```.
+Instale os requisitos necessários com npm ```npm -i``` ou yarn ```yarn install```. Após isso, execute ```yarn start-dev``` para iniciar o serviço no ambiente de desenvolvimento.
 
 #### 3- Banco de dados
 
