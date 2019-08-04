@@ -23,7 +23,7 @@ Estou usando uma versão free que demora um pouco nas requisições, podendo at�
     e. Listar pagamentos
 
 
-##### Rota: Cadastro
+##### Cadastro
 
 Para cadastrar um novo cliente faça um ```POST``` para ```http://localhost:5000/v1/client``` com o body:
     ```
@@ -33,6 +33,7 @@ Para cadastrar um novo cliente faça um ```POST``` para ```http://localhost:5000
         "senha": "123mudar"
     }
     ```
+> Os campos podem ser editados, porém devem seguir esta estrutura de chaves.
 
 #### 5- Simule um erro no ambiente de desenvolvimento
 
