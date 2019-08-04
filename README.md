@@ -17,6 +17,14 @@ Estou usando uma versão free que demora um pouco nas requisições, podendo at�
 #### 4- Utilize as rotas na seguinte ordem:
 
     a. Cadastro;
+        Para cadastrar um novo cliente faça um ```POST``` para ```http://localhost:5000/v1/client``` com o body:
+        ```
+        {
+            "nome": "Verdevaldo",
+            "email": "verdevaldo@gmail.com",
+            "senha": "123mudar"
+        }
+        ```
     b. Login;
     c. Registrar transação cliente;
     d. Listar transação cliente;
