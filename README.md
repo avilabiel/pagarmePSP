@@ -22,7 +22,7 @@ Estou usando uma versão free que demora um pouco nas requisições, podendo at�
 
 De acordo com o OWASP e os padrões de segurança para aplicativos web, os erros internos devem ser ocultos, dificultando as dicas e os caminhos para usuários mal intencionados, porém, esta regra não se aplica ao ambiente de desenvolvimento, onde usei o Youch para detalhar bem o erro, facilitando na sua resolução.
 
-Obs: Todos os erros são levados para o Rollbar, um sistema que recebe os erros e cria alguns reports gráficos e facilita as resoluções dos mesmos. É uma ótima ferramenta! Para entrar no Rollbar:
+> Obs: Todos os erros são levados para o Rollbar, um sistema que recebe os erros e cria alguns reports gráficos e facilita as resoluções dos mesmos. É uma ótima ferramenta! Para entrar no Rollbar:
     
     a. Acesse https://rollbar.com/
     b. Usuário: avilagithub
@@ -32,7 +32,7 @@ Obs: Todos os erros são levados para o Rollbar, um sistema que recebe os erros 
 
 Na produção os erros internos e inesperados não devem aparecer de maneira alguma! Por esta razão, simulei um erro como se fosse na produção, onde aparece o status 500, a mensagem de erro interno ao cliente e a mensagem do verdadeiro erro no Rollbar.
 
-Obs: Todos os erros são levados para o Rollbar, um sistema que recebe os erros e cria alguns reports gráficos e facilita as resoluções dos mesmos. É uma ótima ferramenta! Para entrar no Rollbar:
+> Obs: Todos os erros são levados para o Rollbar, um sistema que recebe os erros e cria alguns reports gráficos e facilita as resoluções dos mesmos. É uma ótima ferramenta! Para entrar no Rollbar:
     
     a. Acesse https://rollbar.com/
     b. Usuário: avilagithub
