@@ -16,7 +16,7 @@
     "mysql2": "^1.6.5",
     "require-dir": "^1.2.0",
     "rollbar": "^2.9.0",
-    "sequelize": "^5.12.2",
+    "sequelize": "^5.15.1",
     "snyk": "^1.207.2"
   },
   "devDependencies": {
